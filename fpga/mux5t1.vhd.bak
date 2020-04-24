@@ -1,0 +1,19 @@
+library ieee;
+use ieee.std_logic_1164.all;
+
+entity mux5t1 is
+port	(A, B, C , D, E : in std_logic_vector(11:0);
+		set : std_logic_vector(2:0);
+	F: out std_logic_vector);
+end bilanganprima;
+
+architecture proses of mux5t1 is 
+casecase set is
+  when "000" =>  Z <= A;
+  when "001" =>  Z <= B;
+  when "010" =>  Z <= C;
+  when "011" =>  Z <= D;
+  when "100" =>  Z <= E;
+  when others =>  Z <= A;
+end case;
+end proses;	

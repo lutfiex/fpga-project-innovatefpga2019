@@ -1,0 +1,43 @@
+//declare the Verilog module - The inputs and output signals.
+module mux5to1(
+    Data_in0,
+    Data_in1,
+	 Data_in2,
+    Data_in3,
+	 Data_in4,
+    set,
+    Data_out
+    );
+
+    //what are the input ports.
+    input [0:11] Data_in_0;
+    input [0:11] Data_in_1;
+	 input [0:11] Data_in_2;
+	 input [0:11] Data_in_3;
+	 input [0:11] Data_in_4;
+    input [0:2] set;
+    //What are the output ports.
+    output [0:11] Data_out;
+    //Internal variables.
+	 reg Data_in_0;
+	 reg Data_in_1;
+	 reg Data_in_2;
+	 reg Data_in_3;
+	 reg Data_in_4;
+    reg Data_out;
+
+    //Always block - the statements inside this block are executed when the given sensitivity list 
+    //is satidfied. for example in this case the block is executed when any changes occur in the three signals 
+    //named 'Data_in_0','Data_in_1' or 'sel'.
+  begin
+    case (set)
+		default : 
+      3'b000  : Data_out <= reg Data_in_0;
+      3'b001  : Data_out <= reg Data_in_1;
+      3'b010  : Data_out <= reg Data_in_2;
+      3'b011  : Data_out <= reg Data_in_3;
+		3'b100  : Data_out <= reg Data_in_4;	
+    endcase
+  end
+    
+endmodule
